@@ -88,8 +88,8 @@ public class BookStoreDbContext :
 
             b.ConfigureByConvention(); //auto configure for the base class properties
 
-            b.Property(x=>x.Name).IsRequired().HasMaxLength(128);
+            b.Property(x => x.Name).IsRequired().HasMaxLength(128);
         });
-            
+
     }
 }
