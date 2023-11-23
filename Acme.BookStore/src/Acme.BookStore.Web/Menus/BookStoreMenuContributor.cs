@@ -26,13 +26,25 @@ public class BookStoreMenuContributor : IMenuContributor
         context.Menu.Items.Insert(
             0,
             new ApplicationMenuItem(
-                BookStoreMenus.Home,
+                "BookStore.Home", 
                 l["Menu:Home"],
-                "~/",
-                icon: "fas fa-home",
-                order: 0
+                "~/"
             )
         );
+
+        //Adding new Menu Item for BookStore
+        context.Menu.AddItem(
+            new ApplicationMenuItem(
+                name: "BooksStore",
+                displayName: l["Menu:BookStore"],
+                icon: "fa fa-book"
+                ).AddItem(
+                    new ApplicationMenuItem(
+                        name: "BooksStore.Books",
+                        displayName: l["Menu:Books"],
+                        url: "/Books")
+                 )
+             );
 
         if (MultiTenancyConsts.IsEnabled)
         {
